@@ -11,6 +11,7 @@ import { MajorStudentsResolver } from "majors/major-students/major-students.reso
 import { MajorStudentsComponent } from "majors/major-students/major-students.component"
 
 const routes: Routes = [
+
   { path: "", component: HomeComponent },
   {
     path: "etudiants",
