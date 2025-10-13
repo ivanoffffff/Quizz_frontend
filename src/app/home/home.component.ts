@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Quiz, QuizService} from "../services/quiz.service";
+import {QuizService} from "../services/quiz.service";
+import { Quiz } from "../models/quiz.model"
 
 @Component({
   selector: 'home',
@@ -16,10 +17,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.quizzes.forEach(quiz => {
-      this.hoverState[quiz.id] = false;
+      this.hoverState[quiz.quizId] = false;
     });
 
-    this.quizService.getAllQuizzes().subscribe(data => {
+    this.quizService.findAll().subscribe(data => {
       this.quizzes = data;
     });
   }
