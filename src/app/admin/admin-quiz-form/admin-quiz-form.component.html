@@ -1,0 +1,74 @@
+<div class="form-container">
+  <div class="header">
+    <h1>{{ isEditMode ? 'Modifier le quiz' : 'Nouveau quiz' }}</h1>
+    <button class="btn-back" (click)="goBack()">← Retour</button>
+  </div>
+
+  <form [formGroup]="quizForm" (ngSubmit)="onSubmit()" class="quiz-form">
+    <div class="form-section">
+      <h2>Informations du quiz</h2>
+
+      <div class="form-group">
+        <label for="title">Titre du quiz *</label>
+        <input
+          id="title"
+          type="text"
+          formControlName="title"
+          placeholder="Ex: Quiz sur le Football"
+          [class.error]="isFieldInvalid('title')"
+        />
+        <div class="error-message" *ngIf="isFieldInvalid('title')">
+          Le titre est requis
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description *</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          rows="4"
+          placeholder="Décrivez le contenu de ce quiz..."
+          [class.error]="isFieldInvalid('description')"
+        ></textarea>
+        <div class="error-message" *ngIf="isFieldInvalid('description')">
+          La description est requise
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section" *ngIf="isEditMode">
+      <h2>Questions</h2>
+      <div class="questions-info">
+        <p>
+          Ce quiz contient actuellement <strong>{{ questionsCount }}</strong> question(s).
+        </p>
+        <button
+          type="button"
+          class="btn-secondary"
+          (click)="manageQuestions()"
+          [disabled]="!currentQuizId"
+        >
+          📝 Gérer les questions
+        </button>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-cancel" (click)="goBack()">
+        Annuler
+      </button>
+      <button
+        type="submit"
+        class="btn-submit"
+        [disabled]="quizForm.invalid || saving"
+      >
+        {{ saving ? 'Enregistrement...' : (isEditMode ? 'Enregistrer' : 'Créer le quiz') }}
+      </button>
+    </div>
+  </form>
+
+  <div class="info-box" *ngIf="!isEditMode">
+    <strong>ℹ️ Information :</strong> Une fois le quiz créé, vous pourrez ajouter des questions.
+  </div>
+</div>

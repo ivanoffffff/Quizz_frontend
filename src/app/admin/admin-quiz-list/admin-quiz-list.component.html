@@ -1,0 +1,45 @@
+<div class="admin-container">
+  <div class="header">
+    <h1>Gestion des Quiz</h1>
+    <button class="btn-primary" (click)="createQuiz()">
+      <span class="icon">+</span>
+      Nouveau Quiz
+    </button>
+  </div>
+
+  <div class="quiz-table" *ngIf="quizzes.length > 0; else noQuizzes">
+    <div class="table-header">
+      <div class="col-id">ID</div>
+      <div class="col-title">Titre</div>
+      <div class="col-description">Description</div>
+      <div class="col-questions">Questions</div>
+      <div class="col-actions">Actions</div>
+    </div>
+
+    <div class="table-row" *ngFor="let quiz of quizzes">
+      <div class="col-id">{{ quiz.quizId }}</div>
+      <div class="col-title">{{ quiz.title }}</div>
+      <div class="col-description">{{ quiz.description }}</div>
+      <div class="col-questions">
+        {{ quiz.questions?.length || 0 }} question(s)
+      </div>
+      <div class="col-actions">
+        <button class="btn-edit" (click)="editQuiz(quiz.quizId)" title="Modifier">
+          ✏️
+        </button>
+        <button class="btn-delete" (click)="deleteQuiz(quiz.quizId)" title="Supprimer">
+          🗑️
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noQuizzes>
+    <div class="no-data">
+      <p>Aucun quiz disponible</p>
+      <button class="btn-primary" (click)="createQuiz()">
+        Créer le premier quiz
+      </button>
+    </div>
+  </ng-template>
+</div>
