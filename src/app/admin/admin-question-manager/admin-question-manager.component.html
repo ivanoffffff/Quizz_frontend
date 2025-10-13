@@ -1,1 +1,151 @@
-<p>admin-question-manager works!</p>
+<div class="manager-container">
+  <div class="header">
+    <div>
+      <h1>Gestion des questions</h1>
+      <p class="quiz-title" *ngIf="quizTitle">Quiz : {{ quizTitle }}</p>
+    </div>
+    <button class="btn-back" (click)="goBack()">← Retour au quiz</button>
+  </div>
+
+  <!-- Formulaire d'ajout/édition -->
+  <div class="form-card">
+    <h2>{{ isEditingQuestion ? 'Modifier la question' : 'Ajouter une question' }}</h2>
+
+    <form [formGroup]="questionForm" (ngSubmit)="saveQuestion()">
+      <div class="form-group">
+        <label for="statement">Question *</label>
+        <input
+          id="statement"
+          type="text"
+          formControlName="statement"
+          placeholder="Ex: Quel joueur a remporté le plus de Ballons d'Or ?"
+          [class.error]="isFieldInvalid('statement')"
+        />
+        <div class="error-message" *ngIf="isFieldInvalid('statement')">
+          La question est requise (min 5 caractères)
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Choix de réponses *</label>
+        <div class="choices-container" formArrayName="choices">
+          <div class="choice-item" *ngFor="let choice of choices.controls; let i = index">
+            <input
+              type="text"
+              [formControlName]="i"
+              placeholder="Choix {{ i + 1 }}"
+              [class.error]="choice.invalid && choice.touched"
+            />
+            <button
+              type="button"
+              class="btn-remove-choice"
+              (click)="removeChoice(i)"
+              *ngIf="choices.length > 2"
+              title="Supprimer ce choix"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn-add-choice"
+          (click)="addChoice()"
+          *ngIf="choices.length < 6"
+        >
+          + Ajouter un choix
+        </button>
+        <div class="error-message" *ngIf="questionForm.hasError('minChoices')">
+          Au moins 2 choix sont requis
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="correctAnswer">Bonne réponse *</label>
+        <select
+          id="correctAnswer"
+          formControlName="correctAnswer"
+          [class.error]="isFieldInvalid('correctAnswer')"
+        >
+          <option value="">-- Sélectionnez la bonne réponse --</option>
+          <option *ngFor="let choice of getValidChoices(); let i = index" [value]="choice">
+            {{ choice }}
+          </option>
+        </select>
+        <div class="error-message" *ngIf="isFieldInvalid('correctAnswer')">
+          Veuillez sélectionner la bonne réponse
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button
+          type="button"
+          class="btn-cancel"
+          (click)="cancelEdit()"
+          *ngIf="isEditingQuestion"
+        >
+          Annuler
+        </button>
+        <button
+          type="submit"
+          class="btn-submit"
+          [disabled]="questionForm.invalid || saving"
+        >
+          {{ saving ? 'Enregistrement...' : (isEditingQuestion ? 'Modifier' : 'Ajouter') }}
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Liste des questions -->
+  <div class="questions-list">
+    <h2>Liste des questions ({{ questions.length }})</h2>
+
+    <div *ngIf="questions.length === 0" class="no-questions">
+      <p>Aucune question pour le moment.</p>
+      <p class="hint">Utilisez le formulaire ci-dessus pour ajouter votre première question.</p>
+    </div>
+
+    <div class="question-card" *ngFor="let question of questions; let i = index">
+      <div class="question-header">
+        <span class="question-number">Question {{ i + 1 }}</span>
+        <div class="question-actions">
+          <button
+            class="btn-edit"
+            (click)="editQuestion(question)"
+            title="Modifier"
+          >
+            ✏️
+          </button>
+          <button
+            class="btn-delete"
+            (click)="deleteQuestion(question.questionId!)"
+            title="Supprimer"
+          >
+            🗑️
+          </button>
+        </div>
+      </div>
+
+      <div class="question-content">
+        <p class="statement">{{ question.statement }}</p>
+
+        <div class="choices-list">
+          <div
+            *ngFor="let choice of question.choices"
+            class="choice-display"
+            [class.correct]="choice === question.correctAnswer"
+          >
+            <span class="choice-icon">
+              {{ choice === question.correctAnswer ? '✓' : '○' }}
+            </span>
+            <span class="choice-text">{{ choice }}</span>
+            <span class="correct-badge" *ngIf="choice === question.correctAnswer">
+              Bonne réponse
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

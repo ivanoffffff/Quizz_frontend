@@ -7,6 +7,7 @@ import { ResultComponent } from './quiz-page/result/result.component';
 import { QuizFinishedComponent } from "./quiz-page/quiz-finished/quiz-finished.component";
 import { AdminQuizListComponent } from './admin/admin-quiz-list/admin-quiz-list.component';
 import { AdminQuizFormComponent } from './admin/admin-quiz-form/admin-quiz-form.component';
+import { AdminQuestionManagerComponent } from './admin/admin-question-manager/admin-question-manager.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'admin/quiz/new', component: AdminQuizFormComponent },
 
   { path: 'admin/quiz/edit/:id', component: AdminQuizFormComponent },
+  { path: 'admin/quiz/:quizId/questions',
+    component: AdminQuestionManagerComponent },
 ]
 
 @NgModule({
