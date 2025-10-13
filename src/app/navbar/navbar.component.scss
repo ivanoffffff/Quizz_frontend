@@ -2,7 +2,7 @@
 
 nav {
   height: 80px;
-  background: linear-gradient(to right, theme.$common-purple, theme.$common-red);
+  background: #1F2937;
 
   div {
     height: 100%;
@@ -21,17 +21,24 @@ nav {
   }
 }
 
+//mat-list-item {
+//  outline: none;
+//}
+
+
 mat-nav-list {
   margin-left: 50px;
   display: flex;
   flex-direction: row;
-  width: 250px;
+  width: auto;
 
   span,
   a {
-    font-size: large;
+    //font-size: large;
     color: theme.$white;
     transition: 0.3s;
+    width: auto;
+
 
     &:hover {
       transform: scale(1.2);

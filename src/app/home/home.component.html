@@ -1,33 +1,101 @@
-<span class="title">Welcome to the Sports Quiz !</span>
+<!--<div class="background-video-container">-->
+<!--  <video autoplay muted loop playsinline>-->
+<!--    <source src="assets/videos/1.mp4" type="video/mp4">-->
+<!--  </video>-->
 
-<span class="secondTitle">Which sport would you like to test your knowledge on?</span>
+<!--<span class="title">Welcome to the Sports Quiz !</span>-->
+
+<!--<span class="secondTitle">Which sport would you like to test your knowledge on?</span>-->
+
+<!--&lt;!&ndash;<div class="quiz-container">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div&ndash;&gt;-->
+<!--&lt;!&ndash;    class="quiz-card"&ndash;&gt;-->
+<!--&lt;!&ndash;    *ngFor="let quiz of quizzes"&ndash;&gt;-->
+<!--&lt;!&ndash;    (click)="openQuiz(quiz)"&ndash;&gt;-->
+<!--&lt;!&ndash;  >&ndash;&gt;-->
+<!--&lt;!&ndash;    <img class="quiz-image" [src]="'assets/images/' + quiz.id + '.jpg'" alt="Quiz image">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="quiz-info">&ndash;&gt;-->
+<!--&lt;!&ndash;      <h3>{{ quiz.title }}</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p>{{ quiz.description }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="tags">&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div class="quiz-container">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="quiz-card" *ngFor="let quiz of quizzes" (click)="openQuiz(quiz)">&ndash;&gt;-->
+<!--&lt;!&ndash;    <img class="quiz-image" [src]="'assets/images/' + quiz.id + '.jpg'" alt="Quiz image">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="quiz-info">&ndash;&gt;-->
+<!--&lt;!&ndash;      <h3>{{ quiz.title }}</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p>{{ quiz.description }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
 <!--<div class="quiz-container">-->
 <!--  <div-->
 <!--    class="quiz-card"-->
 <!--    *ngFor="let quiz of quizzes"-->
 <!--    (click)="openQuiz(quiz)"-->
+<!--    [ngStyle]="{-->
+<!--      'border-left': '6px solid ' + quiz.color,-->
+<!--      'background-color': hoverState[quiz.id] ? quiz.hoverColor : 'white'-->
+<!--    }"-->
+<!--    (mouseenter)="hoverState[quiz.id] = true"-->
+<!--    (mouseleave)="hoverState[quiz.id] = false"-->
 <!--  >-->
-<!--    <img class="quiz-image" [src]="'assets/images/' + quiz.id + '.jpg'" alt="Quiz image">-->
-<!--    <div class="quiz-info">-->
-<!--      <h3>{{ quiz.title }}</h3>-->
-<!--      <p>{{ quiz.description }}</p>-->
-<!--      <div class="tags">-->
+<!--    <div class="quiz-content">-->
+<!--      <img class="quiz-image" [src]="'assets/images/' + quiz.id + '.jpg'" alt="Quiz image">-->
+<!--      <div class="quiz-info">-->
+<!--        <h3>{{ quiz.title }}</h3>-->
+<!--        <p>{{ quiz.description }}</p>-->
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
 
+<!--<div class="background-video">-->
+<!--  <video autoplay muted loop playsinline>-->
+<!--    <source src="assets/videos/1.mp4" type="video/mp4">-->
+<!--  </video>-->
+<!--</div>-->
+
+<!--<div class="background-image">-->
+<!--  <img [src]="'assets/images/background.png'">-->
+<!--</div>-->
+
+<!--<span class="title">Welcome to the Sports Quiz !</span>-->
+
+<!--<span class="secondTitle">Which sport would you like to test your knowledge on?</span>-->
+
 <!--<div class="quiz-container">-->
-<!--  <div class="quiz-card" *ngFor="let quiz of quizzes" (click)="openQuiz(quiz)">-->
-<!--    <img class="quiz-image" [src]="'assets/images/' + quiz.id + '.jpg'" alt="Quiz image">-->
-<!--    <div class="quiz-info">-->
-<!--      <h3>{{ quiz.title }}</h3>-->
-<!--      <p>{{ quiz.description }}</p>-->
+<!--  <div-->
+<!--    class="quiz-card"-->
+<!--    *ngFor="let quiz of quizzes"-->
+<!--    (click)="openQuiz(quiz)"-->
+<!--    [ngStyle]="{-->
+<!--      'border-left': '6px solid ' + quiz.color,-->
+<!--      'background-color': hoverState[quiz.id] ? quiz.hoverColor : 'white'-->
+<!--    }"-->
+<!--    (mouseenter)="hoverState[quiz.id] = true"-->
+<!--    (mouseleave)="hoverState[quiz.id] = false"-->
+<!--  >-->
+<!--    <div class="quiz-content">-->
+<!--      <img class="quiz-image" [src]="'assets/images/' + quiz.id + '.jpg'" alt="Quiz image">-->
+<!--      <div class="quiz-info">-->
+<!--        <h3>{{ quiz.title }}</h3>-->
+<!--        <p>{{ quiz.description }}</p>-->
+<!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
 
+<div class="background-image">
+  <img [src]="'assets/images/background.png'" alt="Background">
+</div>
+<span class="title">Welcome to the Sports Quiz !</span>
+<span class="secondTitle">Which sport would you like to test your knowledge on?</span>
 <div class="quiz-container">
   <div
     class="quiz-card"
@@ -35,7 +103,7 @@
     (click)="openQuiz(quiz)"
     [ngStyle]="{
       'border-left': '6px solid ' + quiz.color,
-      'background-color': hoverState[quiz.id] ? quiz.hoverColor : 'white'
+      'background-color': hoverState[quiz.id] ? quiz.hoverColor : 'rgba(255, 255, 255, 0.9)'
     }"
     (mouseenter)="hoverState[quiz.id] = true"
     (mouseleave)="hoverState[quiz.id] = false"
@@ -49,6 +117,7 @@
     </div>
   </div>
 </div>
+
 
 
 
