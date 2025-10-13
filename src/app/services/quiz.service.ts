@@ -1,22 +1,33 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { Quiz } from "../models/quiz.model";
 
-export interface Quiz {
-  id: number;
-  title: string;
-  description: string;
-  color: string;
-  hoverColor: string;
-}
-
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: "root",
+})
 export class QuizService {
-  private quizzes: Quiz[] = [
-    { id: 1, title: 'Football Quiz', description: '10 questions', color: '#3498db', hoverColor: '#f0f8ff'},
-    { id: 2, title: 'Basketball Quiz', description: '10 questions',color: '#e74c3c', hoverColor: '#fff5f0' }
-  ];
+  private quizzesUrl = "http://localhost:8080/api/quizzes";
 
-  getAllQuizzes(): Observable<Quiz[]> {
-    return of(this.quizzes);
+  constructor(private http: HttpClient) {}
+
+  findAll(): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(this.quizzesUrl);
+  }
+
+  findById(id: number): Observable<Quiz> {
+    return this.http.get<Quiz>(`${this.quizzesUrl}/${id}`);
+  }
+
+  create(quiz: Quiz): Observable<Quiz> {
+    return this.http.post<Quiz>(this.quizzesUrl, quiz);
+  }
+
+  update(id: number, quiz: Quiz): Observable<Quiz> {
+    return this.http.put<Quiz>(`${this.quizzesUrl}/${id}`, quiz);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.quizzesUrl}/${id}`);
   }
 }
