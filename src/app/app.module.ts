@@ -11,13 +11,12 @@ import { FormsModule } from "@angular/forms"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
 import { HttpClientModule } from "@angular/common/http"
+import { QuizComponent } from "./quiz-page/quiz/quiz.component"
+import { AuthComponent } from "./auth/auth.component"
+import { ResultComponent } from "./quiz-page/result/result.component"
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-  ],
+  declarations: [AppComponent, NavbarComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,9 +26,9 @@ import { HttpClientModule } from "@angular/common/http"
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
+    ResultComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

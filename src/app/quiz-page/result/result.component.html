@@ -1,0 +1,80 @@
+<div class="result-container">
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+    <p>Calcul de ton score...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage && !isLoading" class="error-banner">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Results -->
+  <div *ngIf="!isLoading" class="result-content">
+
+    <!-- Score Card -->
+    <div class="score-card">
+      <h1 class="congratulations">{{ getCongratulatoryMessage() }}</h1>
+      <p class="user-name">{{ userName }}</p>
+      <p class="quiz-title">{{ quizTitle }}</p>
+
+      <div class="score-display">
+        <div class="score-circle">
+          <div class="score-number">{{ score }}</div>
+          <div class="score-total">/ {{ totalQuestions }}</div>
+        </div>
+        <div class="score-percentage">{{ getScorePercentage() }}%</div>
+      </div>
+
+      <div *ngIf="isSaved" class="saved-badge">
+        ✓ Score sauvegardé
+      </div>
+    </div>
+
+    <!-- Detailed Results -->
+    <div class="details-section">
+      <h2>Détails des réponses</h2>
+
+      <div class="question-results">
+        <div
+          *ngFor="let result of questionResults; let i = index"
+          class="question-result"
+          [class.correct]="result.isCorrect"
+          [class.incorrect]="!result.isCorrect">
+
+          <div class="question-header">
+            <span class="question-number">Question {{ i + 1 }}</span>
+            <span class="result-icon">{{ result.isCorrect ? '✓' : '✗' }}</span>
+          </div>
+
+          <p class="question-text">{{ result.question }}</p>
+
+          <div class="answer-comparison">
+            <div class="answer-row">
+              <span class="answer-label">Ta réponse :</span>
+              <span class="answer-value" [class.wrong]="!result.isCorrect">
+                {{ result.userAnswer }}
+              </span>
+            </div>
+
+            <div *ngIf="!result.isCorrect" class="answer-row correct-answer">
+              <span class="answer-label">Bonne réponse :</span>
+              <span class="answer-value correct">{{ result.correctAnswer }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button class="btn btn-primary" (click)="goHome()">
+        Retour à l'accueil
+      </button>
+      <button class="btn btn-secondary" (click)="retakeQuiz()">
+        Recommencer ce quiz
+      </button>
+    </div>
+  </div>
+</div>

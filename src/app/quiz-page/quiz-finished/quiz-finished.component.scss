@@ -1,0 +1,227 @@
+.background-image{
+  position: fixed;
+  background-size: cover;/* L'image couvre tout l'espace */
+  //background-color: #151515;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Remplit l’écran sans déformer */
+  //filter: brightness(0.5);
+}
+
+
+.finished-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.finished-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 50px 40px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Celebration Icon */
+.celebration-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Header */
+.finished-header h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.quiz-name {
+  font-size: 20px;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.questions-completed {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Message Box */
+.message-box {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.message-box h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.message-box p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Benefits */
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  background-color: #e9ecef;
+  transform: translateX(5px);
+}
+
+.benefit-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.benefit-text {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Info Box */
+.info-box {
+  background-color: #e7f3ff;
+  border-left: 4px solid #2196F3;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.info-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #1976D2;
+  line-height: 1.5;
+}
+
+.info-box strong {
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-primary {
+  padding: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.btn-secondary {
+  padding: 14px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #666;
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .finished-card {
+    padding: 30px 20px;
+  }
+
+  .finished-header h1 {
+    font-size: 28px;
+  }
+
+  .celebration-icon {
+    font-size: 60px;
+  }
+
+  .message-box h2 {
+    font-size: 20px;
+  }
+
+  .benefit-item {
+    padding: 12px;
+  }
+
+  .benefit-icon {
+    font-size: 24px;
+  }
+}

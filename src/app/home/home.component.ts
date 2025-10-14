@@ -16,12 +16,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.quizzes.forEach(quiz => {
-      this.hoverState[quiz.quizId] = false;
-    });
-
     this.quizService.findAll().subscribe(data => {
       this.quizzes = data;
+
+      this.quizzes.forEach(quiz => {
+        this.hoverState[quiz.quizId!] = false;
+      });
     });
   }
 
@@ -30,8 +30,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/quiz', quizId]);
   }
 
-  openQuiz(quiz: Quiz) {
-
+  openQuiz(quiz: Quiz): void {
+    if (quiz.quizId) {
+      this.router.navigate(['/quiz', quiz.quizId]);
+    }
   }
 }
 

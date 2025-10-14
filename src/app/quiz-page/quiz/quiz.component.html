@@ -1,0 +1,67 @@
+
+<div class="background-video">
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/1.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="quiz-container">
+  <!-- Loading -->
+<!--  <div *ngIf="isLoading" class="loading">-->
+<!--    <p>Chargement du quiz...</p>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash; Error &ndash;&gt;-->
+<!--  <div *ngIf="errorMessage" class="error">-->
+<!--    <p>{{ errorMessage }}</p>-->
+<!--    <button (click)="router.navigate(['/'])">Retour à l'accueil</button>-->
+<!--  </div>-->
+
+
+  <!-- Quiz Content -->
+  <div *ngIf="quiz" class="quiz-content">
+    <!-- Header -->
+    <div class="quiz-header">
+      <h1>{{ quiz.title }}</h1>
+      <p class="quiz-description">{{ quiz.description }}</p>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-section">
+      <div class="progress-text">{{ getProgressText() }}</div>
+      <div class="progress-bar">
+        <div
+          class="progress-fill"
+          [style.width.%]="getProgressPercentage()">
+        </div>
+      </div>
+    </div>
+
+    <!-- Question -->
+    <div class="question-section" *ngIf="currentQuestion">
+      <h2 class="question-statement">{{ currentQuestion.statement }}</h2>
+
+      <!-- Answer Options -->
+      <div class="answers-grid">
+        <div
+          *ngFor="let choice of currentQuestion.choices; let i = index"
+          class="answer-option"
+          [class.selected]="selectedAnswer === choice"
+          (click)="selectAnswer(choice)">
+          <span class="answer-letter">{{ String.fromCharCode(65 + i) }}</span>
+          <span class="answer-text">{{ choice }}</span>
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <div class="button-section">
+        <button
+          class="next-button"
+          [disabled]="!isNextButtonEnabled()"
+          (click)="nextQuestion()">
+          {{ getButtonText() }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
