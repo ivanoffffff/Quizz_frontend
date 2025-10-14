@@ -108,7 +108,7 @@
     (mouseleave)="hoverState[quiz.quizId] = false"
   >
     <div class="quiz-content">
-      <img class="quiz-image" [src]="'assets/images/' + quiz.quizId + '.jpg'" alt="Quiz image">
+      <img class="quiz-image" [src]="'assets/images/' + quiz.type + '.jpg'" alt="Quiz image">
       <div class="quiz-info">
         <h3>{{ quiz.title }}</h3>
         <p>{{ quiz.description }}</p>
