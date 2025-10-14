@@ -48,7 +48,7 @@
     .table-header,
     .table-row {
       display: grid;
-      grid-template-columns: 60px 2fr 3fr 120px 120px;
+      grid-template-columns: 60px 2fr 120px 3fr 120px 120px;
       gap: 1rem;
       padding: 1rem;
       align-items: center;
@@ -94,6 +94,57 @@
     .col-questions {
       color: #666;
       font-size: 0.9rem;
+    }
+
+    .col-type {
+      .type-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: capitalize;
+
+        &[data-type="FOOTBALL"] {
+          background-color: #4CAF50;
+          color: white;
+        }
+
+        &[data-type="BASKETBALL"] {
+          background-color: #FF9800;
+          color: white;
+        }
+
+        &[data-type="TENNIS"] {
+          background-color: #FFEB3B;
+          color: #333;
+        }
+
+        &[data-type="GOLF"] {
+          background-color: #4CAF50;
+          color: white;
+        }
+
+        &[data-type="ATHLETISME"] {
+          background-color: #F44336;
+          color: white;
+        }
+
+        &[data-type="NATATION"] {
+          background-color: #2196F3;
+          color: white;
+        }
+
+        &[data-type="RUGBY"] {
+          background-color: #9C27B0;
+          color: white;
+        }
+
+        &[data-type="AUTRE"] {
+          background-color: #9E9E9E;
+          color: white;
+        }
+      }
     }
 
     .col-actions {

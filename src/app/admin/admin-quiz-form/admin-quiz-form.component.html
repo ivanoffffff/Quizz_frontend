@@ -35,6 +35,27 @@
           La description est requise
         </div>
       </div>
+      <div class="form-group">
+        <label for="type">Type de sport *</label>
+        <select
+          id="type"
+          formControlName="type"
+          [class.error]="isFieldInvalid('type')"
+        >
+          <option value="">-- Sélectionnez un sport --</option>
+          <option value="FOOTBALL">Football</option>
+          <option value="BASKETBALL">Basketball</option>
+          <option value="TENNIS">Tennis</option>
+          <option value="GOLF">Golf</option>
+          <option value="ATHLETISME">Athlétisme</option>
+          <option value="NATATION">Natation</option>
+          <option value="RUGBY">Rugby</option>
+          <option value="AUTRE">Autre</option>
+        </select>
+        <div class="error-message" *ngIf="isFieldInvalid('type')">
+          Le type de sport est requis
+        </div>
+      </div>
     </div>
 
     <div class="form-section" *ngIf="isEditMode">

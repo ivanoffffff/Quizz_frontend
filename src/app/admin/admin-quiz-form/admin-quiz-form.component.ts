@@ -28,6 +28,7 @@ export class AdminQuizFormComponent {
   ) {
     this.quizForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
+      type: ['', Validators.required],
       description: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
@@ -50,6 +51,7 @@ export class AdminQuizFormComponent {
         console.log('✅ Quiz chargé:', quiz);
         this.quizForm.patchValue({
           title: quiz.title,
+          type: quiz.type,
           description: quiz.description
         });
         this.questionsCount = quiz.questions?.length || 0;
@@ -80,6 +82,7 @@ export class AdminQuizFormComponent {
     const quizData: Quiz = {
       quizId: this.currentQuizId || 0,
       title: this.quizForm.value.title,
+      type : this.quizForm.value.type,
       description: this.quizForm.value.description
     };
 

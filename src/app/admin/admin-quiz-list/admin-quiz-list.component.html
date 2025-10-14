@@ -11,6 +11,7 @@
     <div class="table-header">
       <div class="col-id">ID</div>
       <div class="col-title">Titre</div>
+      <div class="col-type">Type</div>
       <div class="col-description">Description</div>
       <div class="col-questions">Questions</div>
       <div class="col-actions">Actions</div>
@@ -19,6 +20,11 @@
     <div class="table-row" *ngFor="let quiz of quizzes">
       <div class="col-id">{{ quiz.quizId }}</div>
       <div class="col-title">{{ quiz.title }}</div>
+      <div class="col-type">
+        <span class="type-badge" [attr.data-type]="quiz.type">
+      {{ getTypeLabel(quiz.type) }}
+    </span>
+      </div>
       <div class="col-description">{{ quiz.description }}</div>
       <div class="col-questions">
         {{ quiz.questions?.length || 0 }} question(s)

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { QuizService } from '../../services/quiz.service';
-import { Quiz } from '../../models/quiz.model';
+import { Quiz, QuizType, QUIZ_TYPE_LABELS} from '../../models/quiz.model';
 
 @Component({
   selector: 'app-admin-quiz-list',
@@ -22,6 +22,10 @@ export class AdminQuizListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadQuizzes();
+  }
+
+  getTypeLabel(type: QuizType): string {
+    return QUIZ_TYPE_LABELS[type] || type;
   }
 
   loadQuizzes(): void {
