@@ -2,14 +2,19 @@ import { Injectable } from '@angular/core';
 import { Observable, map, of, switchMap } from 'rxjs';
 import { UserService } from './user.service';
 import { User } from "../models";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private currentUser: User | null = null;
+  private apiUrl = 'http://localhost:8080/api/users';
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private http: HttpClient
+  ) {}
 
   /**
    * Vérifie si un utilisateur existe avec cet email
@@ -56,6 +61,7 @@ export class AuthService {
    */
   logout(): void {
     this.currentUser = null;
+    localStorage.removeItem('adminEmail');
   }
 
   /**
@@ -63,5 +69,42 @@ export class AuthService {
    */
   isLoggedIn(): boolean {
     return this.currentUser !== null;
+  }
+
+  // ========== NOUVELLES MÉTHODES POUR L'ADMIN ==========
+
+  /**
+   * Vérifie si un email correspond à un admin
+   */
+  checkAdmin(email: string): Observable<boolean> {
+    return this.http.post<boolean>(`${this.apiUrl}/check-admin`, { email }).pipe(
+      map(isAdmin => {
+        if (isAdmin) {
+          localStorage.setItem('adminEmail', email);
+        }
+        return isAdmin;
+      })
+    );
+  }
+
+  /**
+   * Vérifie si l'utilisateur actuel est admin
+   */
+  isAdmin(): boolean {
+    return !!localStorage.getItem('adminEmail');
+  }
+
+  /**
+   * Récupère l'email de l'admin connecté
+   */
+  getAdminEmail(): string | null {
+    return localStorage.getItem('adminEmail');
+  }
+
+  /**
+   * Déconnecte l'admin
+   */
+  logoutAdmin(): void {
+    localStorage.removeItem('adminEmail');
   }
 }

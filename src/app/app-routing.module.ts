@@ -8,6 +8,8 @@ import { QuizFinishedComponent } from "./quiz-page/quiz-finished/quiz-finished.c
 import { AdminQuizListComponent } from './admin/admin-quiz-list/admin-quiz-list.component';
 import { AdminQuizFormComponent } from './admin/admin-quiz-form/admin-quiz-form.component';
 import { AdminQuestionManagerComponent } from './admin/admin-question-manager/admin-question-manager.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { adminGuard } from "./guards/admin.guards";
 
 
 const routes: Routes = [
@@ -20,15 +22,14 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'result', component: ResultComponent },
 
-  { path: "admin", component: AdminQuizListComponent },
+  { path: 'admin/login', component: AdminLoginComponent },
 
-  { path: 'admin/quizzes', component: AdminQuizListComponent },
-
-  { path: 'admin/quiz/new', component: AdminQuizFormComponent },
-
-  { path: 'admin/quiz/edit/:id', component: AdminQuizFormComponent },
-  { path: 'admin/quiz/:quizId/questions',
-    component: AdminQuestionManagerComponent },
+  // Routes admin (protégées par le guard)
+  { path: "admin", component: AdminQuizListComponent, canActivate: [adminGuard] },
+  { path: 'admin/quizzes', component: AdminQuizListComponent, canActivate: [adminGuard] },
+  { path: 'admin/quiz/new', component: AdminQuizFormComponent, canActivate: [adminGuard] },
+  { path: 'admin/quiz/edit/:id', component: AdminQuizFormComponent, canActivate: [adminGuard] },
+  { path: 'admin/quiz/:quizId/questions', component: AdminQuestionManagerComponent, canActivate: [adminGuard] },
 ]
 
 @NgModule({
