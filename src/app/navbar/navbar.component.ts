@@ -11,7 +11,7 @@ export class NavbarComponent {
 
   constructor() {
     this.links.push({ name: "Quiz", href: "quiz" })
-    this.links.push({ name: "Administrateur", href: "admin" })
+    this.links.push({ name: "Gérer les quiz", href: "admin" })
 
   }
 }
