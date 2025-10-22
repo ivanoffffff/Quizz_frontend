@@ -5,44 +5,44 @@
   min-height: 100vh;
 }
 
-/* Loading */
-.loading {
-  text-align: center;
-  padding: 60px 20px;
-}
+///* Loading */
+//.loading {
+//  text-align: center;
+//  padding: 60px 20px;
+//}
 
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #667eea;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 20px;
-}
+//.spinner {
+//  width: 50px;
+//  height: 50px;
+//  border: 5px solid #f3f3f3;
+//  border-top: 5px solid #667eea;
+//  border-radius: 50%;
+//  animation: spin 1s linear infinite;
+//  margin: 0 auto 20px;
+//}
+//
+//@keyframes spin {
+//  0% { transform: rotate(0deg); }
+//  100% { transform: rotate(360deg); }
+//}
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
-/* Error Banner */
-.error-banner {
-  background-color: #fee;
-  border: 1px solid #fcc;
-  color: #c33;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  text-align: center;
-}
+//.error-banner {
+//  background-color: #fee;
+//  border: 1px solid #fcc;
+//  color: #c33;
+//  padding: 15px;
+//  border-radius: 8px;
+//  margin-bottom: 20px;
+//  text-align: center;
+//}
 
-/* Score Card */
+
 .score-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0a4e6e 0%, #049792 100%);
   color: white;
   border-radius: 16px;
-  padding: 40px;
+  padding: 30px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
   margin-bottom: 30px;
@@ -54,17 +54,17 @@
   font-weight: 700;
 }
 
-.user-name {
+.user {
   font-size: 20px;
   margin-bottom: 5px;
   opacity: 0.9;
 }
 
-.quiz-title {
-  font-size: 16px;
-  margin-bottom: 30px;
-  opacity: 0.8;
-}
+//.quiz-title {
+//  font-size: 16px;
+//  margin-bottom: 30px;
+//  opacity: 0.8;
+//}
 
 .score-display {
   display: flex;
@@ -97,21 +97,21 @@
   opacity: 0.8;
 }
 
-.score-percentage {
-  font-size: 48px;
-  font-weight: 600;
-}
+//.score-percentage {
+//  font-size: 48px;
+//  font-weight: 600;
+//}
 
-.saved-badge {
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  margin-top: 15px;
-}
+//.saved-badge {
+//  display: inline-block;
+//  background-color: rgba(255, 255, 255, 0.2);
+//  padding: 8px 16px;
+//  border-radius: 20px;
+//  font-size: 14px;
+//  margin-top: 15px;
+//}
 
-/* Details Section */
+
 .details-section {
   margin-bottom: 30px;
 }
@@ -235,7 +235,7 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0a4e6e 0%, #049792 100%);
   color: white;
   box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
 }
@@ -247,16 +247,16 @@
 
 .btn-secondary {
   background-color: white;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: #04344a;
+  border: 2px solid #04344a;
 }
 
 .btn-secondary:hover {
-  background-color: #667eea;
+  background-color: #04344a;
   color: white;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .score-card {
     padding: 30px 20px;
@@ -275,9 +275,9 @@
     font-size: 60px;
   }
 
-  .score-percentage {
-    font-size: 36px;
-  }
+  //.score-percentage {
+  //  font-size: 36px;
+  //}
 
   .actions {
     flex-direction: column;

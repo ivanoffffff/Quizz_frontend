@@ -1,14 +1,14 @@
 <div class="result-container">
-  <!-- Loading -->
-  <div *ngIf="isLoading" class="loading">
-    <div class="spinner"></div>
-    <p>Calcul de ton score...</p>
-  </div>
+<!--  &lt;!&ndash; Loading &ndash;&gt;-->
+<!--  <div *ngIf="isLoading" class="loading">-->
+<!--    <div class="spinner"></div>-->
+<!--    <p>Calcul de ton score...</p>-->
+<!--  </div>-->
 
-  <!-- Error Message -->
-  <div *ngIf="errorMessage && !isLoading" class="error-banner">
-    {{ errorMessage }}
-  </div>
+<!--  &lt;!&ndash; Error Message &ndash;&gt;-->
+<!--  <div *ngIf="errorMessage && !isLoading" class="error-banner">-->
+<!--    {{ errorMessage }}-->
+<!--  </div>-->
 
   <!-- Results -->
   <div *ngIf="!isLoading" class="result-content">
@@ -16,20 +16,19 @@
     <!-- Score Card -->
     <div class="score-card">
       <h1 class="congratulations">{{ getCongratulatoryMessage() }}</h1>
-      <p class="user-name">{{ userName }}</p>
-      <p class="quiz-title">{{ quizTitle }}</p>
+      <p class="user">{{ userName }}, voici ton score sur le {{ quizTitle }} :</p>
 
       <div class="score-display">
         <div class="score-circle">
           <div class="score-number">{{ score }}</div>
           <div class="score-total">/ {{ totalQuestions }}</div>
         </div>
-        <div class="score-percentage">{{ getScorePercentage() }}%</div>
+<!--        <div class="score-percentage">{{ getScorePercentage() }}%</div>-->
       </div>
 
-      <div *ngIf="isSaved" class="saved-badge">
-        ✓ Score sauvegardé
-      </div>
+<!--      <div *ngIf="isSaved" class="saved-badge">-->
+<!--        ✓ Score sauvegardé-->
+<!--      </div>-->
     </div>
 
     <!-- Detailed Results -->
