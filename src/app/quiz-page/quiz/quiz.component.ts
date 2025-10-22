@@ -166,7 +166,7 @@ import { Question } from '../../models/question.model';
 @Component({
   selector: 'quiz',
   standalone: true,
-  imports: [CommonModule], // ✅ Nécessaire pour ngIf, ngFor, etc.
+  imports: [CommonModule],
   templateUrl: "./quiz.component.html",
   styleUrls: ["./quiz.component.scss"]
 })
@@ -179,7 +179,6 @@ export class QuizComponent implements OnInit {
   isLoading: boolean = true;
   errorMessage: string = '';
 
-  // Utilitaire pour les templates
   String = String;
 
   constructor(
