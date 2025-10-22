@@ -1,22 +1,11 @@
-
+<div *ngIf="quiz">
 <div class="background-video">
   <video autoplay muted loop playsinline>
     <source [src]="'assets/videos/' + quiz?.type + '.mp4'" type="video/mp4">
   </video>
 </div>
-
+</div>
 <div class="quiz-container">
-  <!-- Loading -->
-<!--  <div *ngIf="isLoading" class="loading">-->
-<!--    <p>Chargement du quiz...</p>-->
-<!--  </div>-->
-
-<!--  &lt;!&ndash; Error &ndash;&gt;-->
-<!--  <div *ngIf="errorMessage" class="error">-->
-<!--    <p>{{ errorMessage }}</p>-->
-<!--    <button (click)="router.navigate(['/'])">Retour à l'accueil</button>-->
-<!--  </div>-->
-
 
   <!-- Quiz Content -->
   <div *ngIf="quiz" class="quiz-content">
