@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { QuizService } from '../../services/quiz.service';
-import { Quiz, QuizType, QUIZ_TYPE_LABELS} from '../../models/quiz.model';
+import { Quiz, QuizType, QUIZ_TYPE_LABELS} from "../../models";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin-quiz-list',
@@ -17,7 +18,8 @@ export class AdminQuizListComponent implements OnInit {
 
   constructor(
     private quizService: QuizService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -68,5 +70,14 @@ export class AdminQuizListComponent implements OnInit {
         }
       });
     }
+  }
+
+  logout(): void {
+    this.authService.logoutAdmin();
+    this.router.navigate(['/quiz']);
+  }
+
+  getAdminEmail(): string {
+    return this.authService.getAdminEmail() || 'Admin';
   }
 }

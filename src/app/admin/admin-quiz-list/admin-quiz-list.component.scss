@@ -3,16 +3,52 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  .header {
+  .admin-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
     h1 {
-      font-size: 2rem;
-      color: #333;
       margin: 0;
+    }
+
+    .admin-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .admin-email {
+        color: #666;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .logout-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 20px;
+  }
+
+  .btn-logout {
+    padding: 12px 24px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+      background-color: #c82333;
+      transform: translateY(-2px);
     }
   }
 
