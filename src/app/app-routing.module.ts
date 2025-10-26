@@ -10,6 +10,8 @@ import { AdminQuizFormComponent } from './admin/admin-quiz-form/admin-quiz-form.
 import { AdminQuestionManagerComponent } from './admin/admin-question-manager/admin-question-manager.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { adminGuard } from "./guards/admin.guards";
+import { AdminCreateUserComponent } from './admin/admin-create-user/admin-create-user.component';
+
 
 
 const routes: Routes = [
@@ -30,6 +32,7 @@ const routes: Routes = [
   { path: 'admin/quiz/new', component: AdminQuizFormComponent, canActivate: [adminGuard] },
   { path: 'admin/quiz/edit/:id', component: AdminQuizFormComponent, canActivate: [adminGuard] },
   { path: 'admin/quiz/:quizId/questions', component: AdminQuestionManagerComponent, canActivate: [adminGuard] },
+  { path: 'admin/create-user', component: AdminCreateUserComponent, canActivate: [adminGuard] },
 ]
 
 @NgModule({

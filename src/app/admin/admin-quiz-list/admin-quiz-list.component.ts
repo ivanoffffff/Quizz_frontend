@@ -52,12 +52,15 @@ export class AdminQuizListComponent implements OnInit {
     this.router.navigate(['/admin/quiz/new']);
   }
 
+  createAdmin(): void {
+    this.router.navigate(['/admin/create-user']);
+  }
+
   editQuiz(quizId: number): void {
     this.router.navigate(['/admin/quiz/edit', quizId]);
   }
 
   deleteQuiz(quizId: number): void {
-    // Pour le moment, confirmation simple (on améliorera à l'étape 4)
     if (confirm('Êtes-vous sûr de vouloir supprimer ce quiz ?')) {
       this.quizService.delete(quizId).subscribe({
         next: () => {

@@ -122,7 +122,7 @@ export class AuthComponent implements OnInit {
   isLoading: boolean = false;
   errorMessage: string = '';
   returnUrl: string = '/';
-  context: string = 'general'; // 'quiz', 'admin', 'general'
+  context: string = 'general';
 
   constructor(
     private fb: FormBuilder,

@@ -4,7 +4,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, Validators, Abs
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from '../../services/question.service';
 import { QuizService } from '../../services/quiz.service';
-import { Question } from '../../models/question.model';
+import { Question } from "../../models";
 
 @Component({
   selector: 'app-admin-question-manager',

@@ -1,4 +1,5 @@
 <div class="admin-container">
+  <!-- Header Section -->
   <div class="admin-header">
     <h1>📚 Gestion des Quiz</h1>
     <div class="admin-info">
@@ -6,9 +7,14 @@
         <span class="icon">+</span>
         Nouveau Quiz
       </button>
+      <button class="btn-secondary" (click)="createAdmin()">
+        <span class="icon">+</span>
+        Nouvel Admin
+      </button>
     </div>
   </div>
 
+  <!-- Quiz Table Section -->
   <div class="quiz-table" *ngIf="quizzes.length > 0; else noQuizzes">
     <div class="table-header">
       <div class="col-id">ID</div>
@@ -51,6 +57,7 @@
     </div>
   </ng-template>
 
+  <!-- Logout Section -->
   <div class="logout-container">
     <button class="btn-logout" (click)="logout()">
       Déconnexion

@@ -1,15 +1,4 @@
 <div class="result-container">
-<!--  &lt;!&ndash; Loading &ndash;&gt;-->
-<!--  <div *ngIf="isLoading" class="loading">-->
-<!--    <div class="spinner"></div>-->
-<!--    <p>Calcul de ton score...</p>-->
-<!--  </div>-->
-
-<!--  &lt;!&ndash; Error Message &ndash;&gt;-->
-<!--  <div *ngIf="errorMessage && !isLoading" class="error-banner">-->
-<!--    {{ errorMessage }}-->
-<!--  </div>-->
-
   <!-- Results -->
   <div *ngIf="!isLoading" class="result-content">
 
@@ -23,12 +12,7 @@
           <div class="score-number">{{ score }}</div>
           <div class="score-total">/ {{ totalQuestions }}</div>
         </div>
-<!--        <div class="score-percentage">{{ getScorePercentage() }}%</div>-->
       </div>
-
-<!--      <div *ngIf="isSaved" class="saved-badge">-->
-<!--        ✓ Score sauvegardé-->
-<!--      </div>-->
     </div>
 
     <!-- Detailed Results -->

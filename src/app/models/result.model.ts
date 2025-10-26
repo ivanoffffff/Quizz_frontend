@@ -5,5 +5,5 @@ export interface Result {
   quizId?: number;
   quizTitle?: string;
   score: number;
-  playDate: string; // ISO 8601 date string
+  playDate: string;
 }

@@ -5,7 +5,7 @@ import { QuizStateService } from '../../services/quiz-state.service';
 import { AuthService } from '../../services/auth.service';
 import { ResultService } from '../../services/result.service';
 import { QuizService } from '../../services/quiz.service';
-import { Question } from '../../models/question.model';
+import { Question } from "../../models";
 
 interface QuestionResult {
   question: string;
@@ -17,7 +17,7 @@ interface QuestionResult {
 @Component({
   selector: 'app-result',
   standalone: true,
-  imports: [CommonModule], // ✅ Nécessaire pour ngIf, ngFor, etc.
+  imports: [CommonModule],
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })

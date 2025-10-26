@@ -1,0 +1,55 @@
+<div class="create-admin-container">
+  <div class="create-admin-card">
+    <!-- Header -->
+    <div class="header">
+      <h1>Créer un nouvel administrateur</h1>
+    </div>
+
+    <!-- Form -->
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="newAdmin.name"
+          placeholder="Ex: Jean Dupont"
+          [disabled]="loading"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="newAdmin.email"
+          placeholder="admin@example.com"
+          [disabled]="loading"
+          required
+        />
+      </div>
+
+      <div class="success-message" *ngIf="successMessage">
+        {{ successMessage }}
+      </div>
+
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-group">
+        <button type="button" class="btn-cancel" (click)="onCancel()" [disabled]="loading">
+          Annuler
+        </button>
+        <button type="submit" class="btn-submit" [disabled]="loading || !newAdmin.name || !newAdmin.email">
+          {{ loading ? 'Création...' : 'Créer l\'administrateur' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

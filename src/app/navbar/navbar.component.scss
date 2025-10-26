@@ -1,14 +1,7 @@
 @use "theme";
 
 nav {
-  //position:fixed;
-  //top:10px;
-  //left:10px;
-  //right:10px;
-  //border-radius: 20px;
-  //margin-bottom: 100px;
   height: 80px;
-  //z-index:1000;
   background: #1F2937;
 
   div {
@@ -28,11 +21,6 @@ nav {
   }
 }
 
-//mat-list-item {
-//  outline: none;
-//}
-
-
 mat-nav-list {
   margin-left: 50px;
   display: flex;
@@ -41,7 +29,6 @@ mat-nav-list {
 
   span,
   a {
-    //font-size: large;
     color: theme.$white;
     transition: 0.3s;
     width: auto;

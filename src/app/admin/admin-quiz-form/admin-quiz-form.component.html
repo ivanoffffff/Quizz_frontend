@@ -4,6 +4,7 @@
     <button class="btn-back" (click)="goBack()">← Retour</button>
   </div>
 
+  <!-- Quiz Form -->
   <form [formGroup]="quizForm" (ngSubmit)="onSubmit()" class="quiz-form">
     <div class="form-section">
       <h2>Informations du quiz</h2>
@@ -90,6 +91,6 @@
   </form>
 
   <div class="info-box" *ngIf="!isEditMode">
-    <strong>ℹ️ Information :</strong> Une fois le quiz créé, vous pourrez ajouter des questions.
+    <strong>Information :</strong> Une fois le quiz créé, vous pourrez ajouter des questions.
   </div>
 </div>

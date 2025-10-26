@@ -14,11 +14,10 @@ export interface Quiz {
   quizId: number;
   title: string;
   description: string;
-  type: QuizType;  // ← NOUVEAU CHAMP
+  type: QuizType;
   questions?: Question[];
 }
 
-// Helper pour afficher le nom en français
 export const QUIZ_TYPE_LABELS: Record<QuizType, string> = {
   FOOTBALL: 'Football',
   BASKETBALL: 'Basketball',
