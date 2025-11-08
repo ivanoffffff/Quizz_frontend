@@ -52,7 +52,7 @@ sports-quiz/
 2. **Configurer l'environnement**
 ```bash
 cd back-skeleton
-cp .env.sample .env
+cp env.sample .env
 ```
 
 Contenu par défaut de `.env` :
