@@ -119,8 +119,8 @@ docker-compose down -v
 ## 🛠️ Développement manuel
 
 Pour lancer les services séparément en mode développement, consultez :
-- [README Backend](./back-skeleton/README-BACK.md)
-- [README Frontend](./front-skeleton/README-FRONT.md)
+- [README Backend](../back-skeleton/README-BACK.md)
+- [README Frontend](./README-FRONT.md)
 
 
 ## 🔗 Repositories
