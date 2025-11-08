@@ -35,6 +35,8 @@ front-skeleton/
 
 ## 🚀 Lancement manuel
 
+Se référer au REAME pour un lancement plus rapide via Docker.
+
 ### Prérequis
 - Node.js 18+ et npm
 - Angular CLI (`npm install -g @angular/cli`)
