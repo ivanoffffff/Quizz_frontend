@@ -119,15 +119,9 @@ docker-compose down -v
 ## 🛠️ Développement manuel
 
 Pour lancer les services séparément en mode développement, consultez :
-- [README Backend](./back-skeleton/README.md)
-- [README Frontend](./front-skeleton/README.md)
+- [README Backend](./back-skeleton/README-BACK.md)
+- [README Frontend](./front-skeleton/README-FRONT.md)
 
-## 📚 Stack technique
-
-- **Frontend** : Angular 17, TypeScript
-- **Backend** : Spring Boot 3.1.3, Java 17
-- **Base de données** : PostgreSQL 15
-- **Conteneurisation** : Docker, Docker Compose
 
 ## 🔗 Repositories
 
